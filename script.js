@@ -4,6 +4,7 @@ const apiUrl =
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
+const input = document.querySelector('#input')
 
 async function checkWheather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -36,6 +37,12 @@ async function checkWheather(city) {
     document.querySelector(".error").style.display = "none";
   }
 }
+
+input.addEventListener('keydown', (e)=>{
+  if (e.key === "Enter") {
+    checkWheather(searchBox.value);
+  }
+})
 
 searchBtn.addEventListener("click", () => {
   checkWheather(searchBox.value);
