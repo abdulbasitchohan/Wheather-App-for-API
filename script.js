@@ -38,12 +38,6 @@ async function checkWheather(city) {
   }
 }
 
-input.addEventListener('keydown', (e)=>{
-  if (e.key === "Enter") {
-    checkWheather(searchBox.value);
-  }
-})
-
 searchBtn.addEventListener("click", () => {
   checkWheather(searchBox.value);
 });
