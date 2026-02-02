@@ -21,15 +21,17 @@ async function checkWheather(city) {
 
     switch (data.weather[0].main) {
       case "Clouds":
-        main.src = ""
+        main.url = ""
         weatherIcon.src = "img/clouds.png";
         break;
 
       case "Clear":
+        main.src = "background-img/clear.jpg"
         weatherIcon.src = "img/clear.png";
         break;
 
       case "Rain":
+        main.src = "background-img/rain.jpg"
         weatherIcon.src = "img/rain.png";
         break;
 
