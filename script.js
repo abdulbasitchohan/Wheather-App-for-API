@@ -17,35 +17,63 @@ async function checkWheather(city) {
     let data = await response.json()
     document.querySelector('.city').innerHTML = data.name;
     document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + "℃";
-    document.querySelector('.humidity').innerHTML = data.wind.speed + "Km/h";
+    document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
+    document.querySelector('.wind').innerHTML = data.wind.speed + " km/h";
 
     switch (data.weather[0].main) {
       case "Clouds":
-        main.url = ""
+        main.style.backgroundImage = "url('bg/clouds.jpg')";
         weatherIcon.src = "img/clouds.png";
         break;
 
       case "Clear":
-        main.src = "background-img/clear.jpg"
         weatherIcon.src = "img/clear.png";
+        main.style.backgroundImage = "url('bg/clear.jpg')";
         break;
 
       case "Rain":
-        main.src = "background-img/rain.jpg"
+        weatherIcon.src = "img/rain.png";
         weatherIcon.src = "img/rain.png";
         break;
 
       case "Drizzle":
+        main.style.backgroundImage = "url('bg/drizzle.jpg')";
         weatherIcon.src = "img/drizzle.png";
         break;
 
       case "Mist":
+        main.style.backgroundImage = "url('bg/mist.jpg')";
         weatherIcon.src = "img/mist.png";
         break;
 
-      // default:
-      // weatherIcon.src = "img/default.png"; 
+      default:
+        main.style.backgroundImage = "url('bg/default.jpg')";
     }
+
+
+
+    // switch (data.weather[0].main) {
+    //   case "Clouds":
+    //     main.url = "bg/clouds.jpg"
+    //     break;
+
+    //   case "Clear":
+    //     main.src = "background-img/clear.jpg"
+    //     break;
+
+    //   case "Rain":
+    //     break;
+    //     main.src = "background-img/rain.jpg"
+
+    //   case "Drizzle":
+    //     break;
+
+    //   case "Mist":
+    //     break;
+
+    //   // default:
+    //   // weatherIcon.src = "img/default.png"; 
+    // }
 
     document.querySelector('.weather').style.display = "block";
     document.querySelector('.error').style.display = "none";
@@ -54,12 +82,12 @@ async function checkWheather(city) {
 }
 
 
-searchBtn.addEventListener('click', ()=>{
+searchBtn.addEventListener('click', () => {
   checkWheather(input.value);
 })
 
 
-input.addEventListener("keydown", (e)=>{
+input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     checkWheather(input.value)
   }
