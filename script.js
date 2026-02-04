@@ -50,31 +50,6 @@ async function checkWheather(city) {
         main.style.backgroundImage = "url('bg/default.jpg')";
     }
 
-
-
-    // switch (data.weather[0].main) {
-    //   case "Clouds":
-    //     main.url = "bg/clouds.jpg"
-    //     break;
-
-    //   case "Clear":
-    //     main.src = "background-img/clear.jpg"
-    //     break;
-
-    //   case "Rain":
-    //     break;
-    //     main.src = "background-img/rain.jpg"
-
-    //   case "Drizzle":
-    //     break;
-
-    //   case "Mist":
-    //     break;
-
-    //   // default:
-    //   // weatherIcon.src = "img/default.png"; 
-    // }
-
     document.querySelector('.weather').style.display = "block";
     document.querySelector('.error').style.display = "none";
   }
